@@ -1,0 +1,12 @@
+*.db
+*.db-wal
+*.db-shm
+*.log
+ats_slugs.json
+guess_slugs.json
+market_map.json
+role_scores.json
+blitz_counts.json
+*.csv
+.env
+__pycache__/
