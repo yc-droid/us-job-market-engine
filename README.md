@@ -8,7 +8,7 @@ First run (September 2026):
 - **428,000** jobs pulled straight from 8,200 company career pages, **89,000** of them with a posted salary
 - **24,000** India jobs posted by those same companies, which shows where US companies already hire in India
 
-This repo is the code. Clone it, point it at your own role list, and run it.
+This repo has the code **and the data**: all 438K jobs (salary ranges, locations, links), per-role stats, and US market counts are in [`data/`](data/). Use the data as is, or clone the code and run it on your own role list.
 
 ## What we found
 
@@ -44,6 +44,17 @@ A few things stood out:
 2. **Back office is the most under-served.** AP/AR, payroll, recruiting and support have thousands of small buyers, but very few of them hire in India directly. The work still gets done in India, just through vendors.
 3. **Backend engineering is already moving.** On company career pages, US companies post almost one India backend role for every US one.
 4. **GTM engineering is the fastest-growing role we tracked** (+169% share of postings quarter on quarter), but it's still almost all full-time hiring.
+
+## The data
+
+| File | What's in it |
+|---|---|
+| [`data/jobs_2026-09.csv.gz`](data/jobs_2026-09.csv.gz) | 438,656 jobs from 8,296 company career pages: title, company, location, role, salary range, link |
+| [`data/boards_2026-09.csv`](data/boards_2026-09.csv) | 8,296 companies with open-job counts for the US and India |
+| [`data/role_stats_career_pages_2026-09.json`](data/role_stats_career_pages_2026-09.json) | Salary percentiles, remote share and India ratio per role |
+| [`data/market_map_counts_2026-09.json`](data/market_map_counts_2026-09.json) | US posting counts per role: 9 months of volume, remote, contract, seniority, India and Philippines |
+
+Data dictionary and license (CC BY 4.0): [`data/README.md`](data/README.md)
 
 ## How it works
 
@@ -95,7 +106,8 @@ A full crawl of about 10,000 boards takes 15 to 20 minutes on a laptop. Edit `ta
 | `radar/analyze_ats.py` | Role stats from the crawl |
 | `radar/market_map.py`, `score.py` | Blitz market map and offshore score |
 | `radar/blitz_bulk.py` | Pulls every posting for high-scoring roles, splitting queries to get past the 5K cap |
-| `examples/` | Output from our September 2026 run (role-level stats only) |
+| `examples/` | Offshore score and top-20 table from the September 2026 run |
+| `data/` | The full dataset from that run (see above) |
 
 ## Limits
 
